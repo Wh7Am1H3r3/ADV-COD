@@ -1,0 +1,107 @@
+//page 1
+
+let friends = 200
+print(friends)
+
+//:  Now assume you go through and remove friends that aren't active on social media. Attempt to update your `friends` constant to a lower number than it currently is. Observe what happens and then move to the next step.
+//friends = 150
+
+//:  Does the above code compile? Why not? Print your explanation to the console using the `print` function. Go back and delete your line of code that updates the `friends` constant to a lower number so that the playground will compile properly.
+print("The code doesn't compile because the previously defined constant's value cannot be changed (as it is a constant, not a variable). Only defined variables can be changed.")
+
+//page 2
+
+let goalSteps = 10000
+
+//:  Use two `print` functions to print two separate lines to the console. The first line should say "Your step goal for the day is:", and the second line should print the value of `goalSteps` by referencing your constant.
+print("Your step goal for the day is:")
+print(goalSteps)
+
+//page 3
+
+var schooling = 12
+print(schooling)
+//:  Now imagine you just completed an additional year of school, and update the `schooling` variable accordingly. Print `schooling` to the console.
+schooling = 13
+print(schooling)
+
+//:  Does the above code compile? Why is this different than trying to update a constant? Print your explanation to the console using the `print` function.
+print("The code compiles because 'schooling' is a variable, meaning that its value
+
+//page 4
+
+var steps = 0
+print(steps)
+
+//:  Now assume the tracker has been keeping track of steps all morning, and you want to show the user the latest step count. Update `steps` to be 2000. Print `steps` to the console. Then print "Good job! You're well on your way to your daily goal."
+steps += 2000
+print(steps)
+print("Good job! You're well on your way to your daily goal.")
+
+//page 5
+
+var numberOfLikes = 500
+var numberOfComments = 150
+let yearCreated = 2022
+let monthCreated = 10
+let dayCreated = 31
+
+//page 6
+
+let name = "Muhammad"
+print("Names generally don't change, making them constants.")
+var age = 21
+print("Age rises/changes as one grows older, making age a variable.")
+var stepsTakenToday = 5555
+print("The number of steps constantly increase throughout the day, meaning it needs a variable that can be changed.")
+let stepGoal = 10000
+print("The daily step goal does not change, making a constant the optimal choice.")
+var avrHeartRate = 60
+print("As time passes, one's average heart rate over the previous 24 hours will change. For example, a person's average heart rate would be different from midnight to midnight, as opposed to 6PM to 6PM, meaning this needs a variable that can be changed.")
+
+//page 7
+
+var firstDecimal = 25.67
+var secondDecimal = 81.81
+
+//:  Declare a variable called `trueOrFalse` and give it a boolean value. Try to assign it to `firstDecimal` like so: `firstDecimal = trueOrFalse`. Does it compile? Print a statement to the console explaining why not, and remove the line of code that will not compile.
+var trueOrFalse = true
+//firstDecimal = trueOrFalse
+print("This statement does not compile because the two variables are of two different types (Double and Boolean), and you can't assign a value to a variable that is of a different type.")
+
+//:  Declare a variable and give it a string value. Then try to assign it to `firstDecimal`. Does it compile? Print a statement to the console explaining why not, and remove the line of code that will not compile.
+var string = "Hello"
+//firstDecimal = string
+print("firstDecimal is a Double while string is a string, meaning that the values are of two different types (a variable of one type cannot be assigned to that of another.")
+//:  Finally, declare a variable with a whole number value. Then try to assign it to `firstDecimal`. Why won't this compile even though both variables are numbers? Print a statement to the console explaining why not, and remove the line of code that will not compile.
+var number = 100
+//number = firstDecimal
+print("Doubles and Ints are different types despite both being numbers, meaning that you cannot assign a Double variable to an Int variable (or vice versa).")
+
+//page 8
+
+var hasMetStepGoal = true
+
+//:  When you declared a constant for goal number of steps and a variable for current step count, you likely assigned each a value in the thousands. This can be difficult to read. Redeclare this constant and variable and, when assigning each a value in the thousands, format the number so that it is more readable.
+let goalStepNumber = "10,000"
+var currentStepCount = "5,555"
+
+//page 9
+
+var name: String
+
+//:  Now assign a value to `name`, and print it to the console.
+name = "Bart"
+print(name)
+//:  Declare a variable called `distanceTraveled` and set it to 0. Do not give it an explicit type.
+var distanceTraveled: Double = 0
+
+//:  Now assign a value of 54.3 to `distanceTraveled`. Does the code compile? Go back and set an explicit type on `distanceTraveled` so the code will compile.
+distanceTraveled = 54.3
+
+//page 10
+
+var percentCompleted: Double = 0
+
+//:  Imagine that partway through the day a user has taken 3,467 steps out of the 10,000 step goal. This means he/she is 34.67% of the way to his/her goal. Assign 34.67 to `percentCompleted`. Does the code compile? Go back and explicity assign a type to `percentCompleted` that will allow the code to compile.
+percentCompleted = 34.67
