@@ -1,0 +1,163 @@
+//page 1
+
+let width = 10
+let height = 20
+let area = width * height
+print(area)
+
+//:  You decide that you'll divide your shed into two rooms. You want to know if dividing it equally will leave enough room for some of your larger storage items. Create a `roomArea` constant that is the result of dividing `area` in half. Print out the result.
+let roomArea = area / 2
+print(roomArea)
+
+//:  Create a `perimeter` constant whose value equals `width` plus `width` plus `height` plus `height`, then print out the result.
+let perimeter = width + width + height + height
+print(perimeter)
+
+//:  Print what you would expect the result of integer division of 10 divided by 3 to be. Create a constant, `integerDivisionResult` that is the result of 10 divided by 3, and print the value.
+print("I think that 10 divided by 3 would simply return 3.")
+let integerDivisionResult = 10 / 3
+print(integerDivisionResult)
+
+//:  Now create two constants, `double10` and `double3`, set to 10 and 3, and declare their types as `Double` values. Declare a final constant `divisionResult` equal to the result of `double10` divided by `double3`. Print the value of `divisionResult`. How does this differ from the value when using integer division?
+let double10: Double = 10
+let double3: Double = 3
+let divisionResult = double10 / double3
+print(divisionResult)
+
+/*:
+ Given the value pi (3.1415927), create a `radius` constant with a value of 5.0, then calculate the diameter and circumference of the circle using the following equations, and print the results:
+ 
+ *diameter = 2 * radius*
+ 
+ *circumference = 2 * pi * radius.*
+ */
+let pi = 3.1415927 
+let radius = 5.0
+let diameter = 2 * radius
+let circumference = 2 * pi * radius
+print(diameter)
+print(circumference)
+
+//:  Create an integer constant. Using the modulus operator, set its value to the remainder of 12 divided by 5.
+let integer = 12 % 5
+
+//:  Create two integer constants, `even` and `odd` and set them to any even integer and any odd integer, respectively. For each, print the remainder of dividing the value by 2. Looking at the results, how do you think you could use the remainder operator to determine if an integer is even or odd?
+let even = 68
+let odd = 9
+print(even % 2)
+print(odd % 2)
+print("Using the remainder operator on an integer can determine whether it's even (no remainder) or odd (remainder of 1).")
+
+//page 2
+
+let heartRate1 = 75
+let heartRate2 = 87
+let heartRate3 = 100
+let addedHR = heartRate1 + heartRate2 + heartRate3
+let averageHR = addedHR / 3
+print(averageHR)
+
+//:  Now create three more constants, `heartRate1D`, `heartRate2D`, and `heartRate3D`, equal to the same values as `heartRate1`, `heartRate2`, and `heartRate3`. These new constants should be of type `Double`. Create a constant `addedHRD` equal to the sum of all three heart rates. Create a constant called `averageHRD` that equals the `addedHRD` divided by 3 to get the average of your new heart rate constants. Print the result. Does this differ from your previous average? Why or why not?
+let heartRate1D = 75.0
+let heartRate2D = 87.0
+let heartRate3D = 100.0
+let addedHRD = heartRate1D + heartRate2D + heartRate3D
+let averageHRD = addedHRD / 3
+print(averageHRD)
+print("This differs because dividing Doubles can provide decimal remainders, unlike Integers.")
+
+//:  Imagine that partway through the day a user has taken 3,467 steps out of the 10,000 step goal. Create constants `steps` and `goal`. Both will need to be of type `Double` so that you can perform accurate calculations. `steps` should be assigned the value 3,467, and `goal` should be assigned 10,000. Create a constant `percentOfGoal` that equals an expression that evaluates to the percent of the goal that has been achieved so far.
+let steps: Double = 3467
+let goal: Double = 10000
+let percentOfGoal = steps / goal
+
+//page 3
+
+var andromeda = 10
+andromeda += 5
+print(andromeda)
+andromeda *= 2
+print(andromeda)
+/*:
+ Create a variable called `piggyBank` that begins at 0. You will use this to keep track of money you earn and spend. For each point below, use the right compound assignment operator to update the balance in your piggy bank.
+ 
+- Your neighbor gives you 10 dollars for mowing her lawn
+- You earn 20 more dollars throughout the week doing odd jobs
+- You spend half your money on dinner and a movie
+- You triple what's left in your piggy bank by washing windows
+- You spend 3 dollars at a convenience store
+ 
+ Print the balance of your piggy bank after each step.
+ */
+var piggyBank = 0
+piggyBank += 10
+print(piggyBank)
+piggyBank += 20
+print(piggyBank)
+piggyBank /= 2
+print(piggyBank)
+piggyBank *= 3
+print(piggyBank)
+piggyBank -= 3
+print(piggyBank)
+
+//page 4
+
+var steps = 0
+steps += 1
+
+/*:
+ In addition to tracking steps, your fitness tracking app tracks distance traveled. Create a variable `distance` of type `Double` and set it equal to 50. This will represent the user having traveled 50 feet.
+ 
+ You decide, however, to display the distance in meters. 1 meter is approximately equal to 3 feet. Use a compound assignment operator to convert `distance` to meters. Print the result.
+ */
+var distance: Double = 50
+distance /= 3
+print("\(distance) meters")
+
+//page 5
+
+print(20)
+print(10 + 2 * 5)
+
+//:  In a separate `print` statement, add in the necessary parentheses so that addition takes place before multiplication.
+print((10 + 2) * 5)
+
+//:  Print out what you think 4 * 9 - 6 / 2 evaluates to. Then print out the actual expression.
+print(33)
+print(4 * 9 - 6 / 2)
+//:  In a separate `print` statement, add in the necessary parentheses so that the subtraction is prioritized over the multiplication and division.
+print(4 * (9 - 6) / 2)
+
+//page 6
+
+let hr1 = 66.0
+let hr2 = 81.0
+let hr3 = 92.0
+let avrHR = (hr1 + hr2 + hr3) / 3
+
+/*:
+ One feature you might want to give users is to display their current body temperature. Create a constant `tempInFahrenheit` equal to 98.6. 
+ 
+ You may want to also show the temperature in celsius. You can convert fahrenheit to celsius by taking `tempInFahrenheit` and subtracting 32, then multiplying the result by (5.0/9.0). Create a constant `tempInCelsius` that calculates in one line the temperature in celsius.
+ */
+let tempInFahrenheit = 98.6
+let tempInCelsius = (tempInFahrenheit - 32) * (5.0 / 9.0)
+
+//page 7
+
+let x = 10
+let y = 3.2
+let multipliedAsIntegers = x * Int(y)
+//:  Create a constant `multipliedAsDoubles` equal to `x` times `y`, but this time convert the `Int` to a `Double` in the expression. Print the result.
+let multipliedAsDoubles = Double(x) * y
+print(multipliedAsDoubles)
+//:  Are the values of `multipliedAsIntegers` and `multipliedAsDoubles` different? Print a statement to the console explaining why.
+print("The two values are different because converting a Double to an Int removes the decimal part of the number, only taking the Int/whole number (3 in this case). Multiplying Doubles takes the decimals into account and provides a more accurate answer as a result.")
+
+//page 8
+
+var steps: Int = 4444
+let goal: Int = 10000
+
+let percentOfGoal: Double = Double(steps) / Double(goal)
