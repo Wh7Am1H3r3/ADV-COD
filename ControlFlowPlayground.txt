@@ -1,0 +1,170 @@
+//page 1
+
+print(true)
+print(9 == 9)
+
+//:  2. `9 != 9`
+print(false)
+print(9 != 9)
+//:  3. `47 > 90`
+print(false)
+print(47 > 90)
+//:  4. `47 < 90`
+print(true)
+print(47 < 90)
+//:  5. `4 <= 4`
+print(true)
+print(4 <= 4)
+//:  6. `4 >= 5`
+print(false)
+print(4 >= 5)
+//:  7. `(47 > 90) && (47 < 90)`
+print(false)
+print((47 > 90) && (47 < 90))
+//:  8. `(47 > 90) || (47 < 90)`
+print(true)
+print((47 > 90) || (47 < 90))
+//:  9. `!true`
+print(false)
+print(!true)
+
+//page 2
+
+var dollars = 0
+
+if dollars == 0 {
+    print("Sorry, kid. You're broke!")
+}
+//:  `dollars` has been updated below to have a value of 10. Write an an if-else statement that prints "Sorry, kid. You're broke!" if `dollars` has a value of 0, but prints "You've got some spending money!" otherwise. Observe what is printed to the console.
+dollars = 10
+
+if dollars == 0 {
+    print("Sorry, kid. You're broke!")
+} else {
+    print("You've got some spending money!")
+}
+//:  `dollars` has been updated below to have a value of 105. Write an an if-else-if statement that prints "Sorry, kid. You're broke!" if `dollars` has a value of 0, prints "You've got some spending money!" if `dollars` is less than 100, and prints "Looks to me like you're rich!" otherwise. Observe what is printed to the console.
+dollars = 105
+
+if dollars == 0 {
+    print("Sorry, kid. You're broke!")
+} else if dollars < 100 {
+    print("You've got some spending money!")
+} else {
+    print("Looks to me like you're rich!")
+}
+
+//page 3
+
+var steps = 789
+let stepGoal = 10000
+
+if steps < stepGoal / 2 {
+    print("You're almost halfway there!")
+} else {
+    print("You're over halfway there!")
+}
+
+//:  Now create a new, but similar, if-else-if statement that prints "Way to get a good start today!" if `steps` is less than a tenth of `stepGoal`, prints "You're almost halfway there!" if `steps` is less than half of `stepGoal`, and prints "You're over halfway there!" if `steps` is greater than half of `stepGoal`.
+if steps < stepGoal / 10 {
+    print("Way to get a good start today!")
+} else if steps < stepGoal / 2 {
+    print("You're almost halfway there!")
+} else {
+    print("You're over halfway there!")
+}
+
+//page 4
+
+let hasFish = true
+let hasPizza = false
+let hasVegan = true
+
+if hasFish == true || hasPizza == true && hasVegan == true {
+    print("Let's go!")
+} else {
+    print("Sorry, we'll have to think of somewhere else.")
+}
+//:  Imagine you're trying to decide whether or not to go on a walk. You decide that you'll go on a walk if it's not raining or if it's 82 degress or warmer and sunny out. Create a constant `isNiceWeather` that is equal to an expression that evaluates to a boolean indicating whether or not the weather is nice enough for you to go for a walk. Write an if statement that will print "I'm going for a walk!" if the weather is nice.
+let temp = 82
+let isRaining = true
+let isSunny = true
+
+let isNiceWeather: Bool = isRaining == false || temp >= 82 && isSunny == true
+if isNiceWeather == true {
+    print("I'm going for a walk!")
+}
+
+//page 5
+
+let targetLowerBound = 120
+let targetUpperBound = 150
+let currentHR = 147
+
+let isInTarget: Bool = currentHR >= targetLowerBound && currentHR <= targetUpperBound
+let isBelowTarget: Bool = currentHR < targetLowerBound
+let isAboveTarget: Bool = currentHR > targetUpperBound
+
+if isInTarget == true {
+    print("You're right on track!")
+} else if isBelowTarget == true {
+    print("You're doing great, but try to push it a bit!")
+} else if isAboveTarget == true {
+    print("You're on fire! Slow it down just a bit.")
+}
+
+//page 6
+
+let leaguePosition = 1
+switch leaguePosition {
+case 1: print("Champions!")
+case 2: print("Runners up")
+case 3: print("Third place")
+default: print("Bad season!")
+}
+
+//:  Write a new `switch` statement that prints "Medal winner" if `leaguePosition` is within the range of 1-3. Otherwise, print "No medal awarded."
+switch leaguePosition {
+case 1...3: print("Medal winner")
+default: print("No medal awarded")
+}
+
+//page 7
+
+let currentHR = 101
+switch currentHR {
+case 100...120: print("You are in the Very Light zone. Activity in this zone helps with recovery.")
+case 121...140: print("You are in the Light zone. Activity in this zone helps improve basice endurance and fat burning.")
+case 141...160: print("You are in the Moderate zone. Activity in this zone helps improve aerobic fitness.")
+case 161...180: print("You are in the Hard zone. Activity in this zone increases maximum performance capacity for shorter sessions.")
+case 181...200: print("You are in the Maximum zone. Activity in this zone helps fit athletes develop speed.")
+default: print("Idiot, slow down!")
+}
+
+//page 8
+
+let number1 = 14
+let number2 = 25
+
+var largest: Int
+
+if number1 > number2 {
+    largest = number1
+} else {
+    largest = number2
+}
+
+largest = number1 > number2 ? number1 : number2
+
+//page 9
+
+let stepGoal = 10000
+let steps = 3948
+
+if steps < stepGoal / 2 {
+    print("Almost halfway!")
+} else {
+    print("Over halfway!")
+}
+
+print(steps < stepGoal / 2 ? "Almost halfway!" : "Over halfway!")
