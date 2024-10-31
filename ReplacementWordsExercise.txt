@@ -1,0 +1,57 @@
+import Foundation
+
+// read number of and words in replacement pairs
+print("Enter the number of words you wish to replace.")
+guard let pairLine = readLine(), let numPairs = Int(pairLine) else {
+    print("Failed to read the number of words to be replaced. Enter an integer.")
+    exit(1)
+}
+
+//initialize arrays
+var originals = [String]()
+var replacements = [String]()
+
+//read replacement pairs
+print("Enter the word pairs you wish to replace. Example for replacing 'cold' with 'hot': cold hot")
+if let pairWordLine = readLine() {
+    let pairs = pairWordLine.split(separator: " ").map { String($0) }
+    for i in 0..<numPairs {
+        originals.append(pairs[2 * i])
+        replacements.append(pairs[2 * i + 1])
+    }
+} else {
+    print("Failed to read replacement pairs. Try again.")
+    exit(1)
+}
+
+//read number of words in sentence
+print("Enter the number of words in your sentence.")
+guard let sentenceLine = readLine(), let numSentenceWords = Int(sentenceLine) else {
+    print("Failed to read the number of words in the sentence. Enter an integer.")
+    exit(1)
+}
+
+// function to get the index of a word in a list
+func findWordInWordList(of word: String, in wordList: [String]) -> Int {
+    if let index = wordList.firstIndex(of: word) {
+        return index
+    }
+    return -1
+}
+
+//read sentence
+print("Enter your full sentence.")
+if let sentenceWordLine = readLine() {
+    var sentenceWords = sentenceWordLine.split(separator: " ").map { String($0) }
+    for i in 0..<sentenceWords.count {
+        let index = findWordInWordList(of: sentenceWords[i], in: originals)
+        if index != -1 {
+            sentenceWords[i] = replacements[index]
+        }
+    }
+    //print new sentence
+    print(sentenceWords.joined(separator: " "))
+} else {
+    print("Failed to read the sentence. Try again.")
+    exit(1)
+}
