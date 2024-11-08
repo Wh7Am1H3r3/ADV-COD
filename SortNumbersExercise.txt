@@ -1,0 +1,21 @@
+print("Input your list of integers to sort, starting with the number of integers in the list.")
+
+var numbers: [Int] = []
+
+if let numberInput = readLine() {
+    numbers = numberInput.split(separator: " ").map { Int($0) ?? 0 }
+} else {
+    print("Failed to read line.")
+}
+
+var numbersToSort = [Int]()
+
+for i in 1..<numbers.count {
+    numbersToSort.append(numbers[i])
+}
+
+numbersToSort.sort()
+
+print("Sorted list from least to greatest: \(numbersToSort)")
+
+
