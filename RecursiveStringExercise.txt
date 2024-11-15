@@ -1,0 +1,22 @@
+func flipString(_ s: String) -> String {
+    if s.isEmpty || s.count == 1 {
+        return s
+    } else {
+        // recursive: takes the last letter and adds it to the front of the new string
+        let lastLetter = s.suffix(1)
+        let remainingString = String(s.dropLast())
+        return lastLetter + flipString(remainingString)
+    }
+}
+
+func main() {
+    print("Enter a sentence:")
+    if let line = readLine() {
+        let input = line
+        print("\nOriginal String: \(input)")
+        let finalString = flipString(input)
+        print("Reversed String: \(finalString)")
+    }
+}
+
+main()
