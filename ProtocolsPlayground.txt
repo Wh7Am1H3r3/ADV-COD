@@ -1,0 +1,220 @@
+// PAGE 1
+
+import Foundation
+
+class Human: CustomStringConvertible, Equatable, Comparable, Codable {
+    let name: String
+    let age: Int
+    
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+    
+    var description: String {
+        return "\(name), \(age) years old."
+    }
+    
+    static func ==(lhs: Human, rhs: Human) -> Bool {
+        return lhs.name == rhs.name && lhs.age == rhs.age
+    }
+    
+    static func < (lhs: Human, rhs: Human) -> Bool {
+        return lhs.age < rhs.age
+    }
+}
+
+let human1 = Human(name: "Joe", age: 25)
+let human2 = Human(name: "Michael", age: 30)
+//:  Make the `Human` class adopt the `CustomStringConvertible` protocol. Print both of your previously initialized `Human` objects.
+print(human1)
+print(human2)
+//:  Make the `Human` class adopt the `Equatable` protocol. Two instances of `Human` should be considered equal if their names and ages are identical to one another. Print the result of a boolean expression evaluating whether or not your two previously initialized `Human` objects are equal to eachother (using `==`). Then print the result of a boolean expression evaluating whether or not your two previously initialized `Human` objects are not equal to eachother (using `!=`).
+let areEqual = human1 == human2
+print("Are they equal? \(areEqual)")
+
+let notEqual = human1 != human2
+print("Are they not equal? \(notEqual)")
+//:  Make the `Human` class adopt the `Comparable` protocol. Sorting should be based on age. Create another three instances of a `Human`, then create an array called `people` of type `[Human]` with all of the `Human` objects that you have initialized. Create a new array called `sortedPeople` of type `[Human]` that is the `people` array sorted by age.
+let human3 = Human(name: "Zoe", age: 18)
+let human4 = Human(name: "Bruno", age: 45)
+let human5 = Human(name: "Anderson", age: 12)
+
+let people: [Human] = [human1, human2, human3, human4, human5]
+
+let sortedPeople: [Human] = people.sorted(by:>)
+//:  Make the `Human` class adopt the `Codable` protocol. Create a `JSONEncoder` and use it to encode as data one of the `Human` objects you have initialized. Then use that `Data` object to initialize a `String` representing the data that is stored, and print it to the console.
+let jsonEncoder = JSONEncoder()
+if let jsonData = try? jsonEncoder.encode(human1),
+let jsonString = String(data: jsonData, encoding: .utf8) {
+    print(jsonString)
+}
+
+// PAGE 2
+
+import Foundation
+
+class Workout: CustomStringConvertible, Equatable, Comparable, Codable {
+    var distance: Double
+    var time: Double
+    var identifier: Int
+    
+    init(distance: Double, time: Double, identifier: Int) {
+        self.distance = distance
+        self.time = time
+        self.identifier = identifier
+    }
+    
+    var description: String {
+        return "Workout \(identifier): You have worked out for \(time) minutes and traveled \(distance) miles."
+    }
+
+    static func == (lhs: Workout, rhs: Workout) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+    
+    static func < (lhs: Workout, rhs: Workout) -> Bool {
+        return lhs.identifier < rhs.identifier
+    }
+}
+
+//:  Make the `Workout` class above conform to the `CustomStringConvertible` protocol so that printing an instance of `Workout` will provide useful information in the console. Create an instance of `Workout`, give it an identifier of 1, and print it to the console.
+let workout1 = Workout(distance: 2.5, time: 30, identifier: 1)
+print(workout1)
+
+//:  Make the `Workout` class above conform to the `Equatable` protocol. Two `Workout` objects should be considered equal if they have the same identifier. Create another instance of `Workout`, giving it an identifier of 2, and print a boolean expression that evaluates to whether or not it is equal to the first `Workout` instance you created.
+let workout2 = Workout(distance: 4, time: 50, identifier: 2)
+
+let areEqual = workout1 == workout2
+print("Are they equal? \(areEqual)")
+/*:
+ Make the `Workout` class above conform to the `Comparable` protocol so that you can easily sort multiple instances of `Workout`. `Workout` objects should be sorted based on their identifier. 
+ 
+ Create three more `Workout` objects, giving them identifiers of 3, 4, and 5, respectively. Then create an array called `workouts` of type `[Workout]` and assign it an array literal with all five `Workout` objects you have created. Place these objects in the array out of order. Then create another array called `sortedWorkouts` of type `[Workout]` that is the `workouts` array sorted by identifier. 
+ */
+let workout3 = Workout(distance: 1.5, time: 20, identifier: 3)
+let workout4 = Workout(distance: 5, time: 90, identifier: 4)
+let workout5 = Workout(distance: 8, time: 125, identifier: 5)
+
+let workouts = [workout4, workout1, workout2, workout5, workout3]
+
+let sortedWorkouts = workouts.sorted(by: <)
+//:  Make `Workout` adopt the `Codable` protocol so you can easily encode `Workout` objects as data that can be stored between app launches. Use a `JSONEncoder` to encode one of your `Workout` instances. Then use the encoded data to initialize a `String`, and print it to the console.
+let jsonEncoder = JSONEncoder()
+
+if let jsonData = try? jsonEncoder.encode(workout1),
+let jsonString = String(data: jsonData, encoding: .utf8) {
+    print(jsonString)
+}
+
+// PAGE 3
+
+protocol Vehicle {
+    var numberOfWheels: Int { get }
+    
+    func drive()
+}
+
+//:  Define a `Car` struct that implements the `Vehicle` protocol. `numberOfWheels` should return a value of 4, and `drive()` should print "Vroom, vroom!" Create an instance of `Car`, print its number of wheels, then call `drive()`.
+struct Car: Vehicle {
+    var numberOfWheels: Int
+    
+    func drive() {
+        print("Vroom, vroom!")
+    }
+}
+
+let car1 = Car(numberOfWheels: 4)
+print(car1.numberOfWheels)
+car1.drive()
+
+//:  Define a `Bike` struct that implements the `Vehicle` protocol. `numberOfWheels` should return a value of 2, and `drive()` should print "Begin pedaling!". Create an instance of `Bike`, print its number of wheels, then call `drive()`.
+struct Bike: Vehicle {
+    var numberOfWheels: Int
+    
+    func drive() {
+        print("Begin pedaling!")
+    }
+}
+
+let bike1 = Car(numberOfWheels: 2)
+print(bike1.numberOfWheels)
+bike1.drive()
+
+// PAGE 4
+
+protocol Workout {
+    var distance: Double { get set }
+    var time: Double { get set }
+}
+
+//:  Create two structs, `RunningWorkout` and `SwimmingWorkout`. Both should conform to the `Workout` protocol. Uncomment the function `simpleWorkoutDescription` below, create an instance of each of your structs, and call `simpleWorkoutDescription` twice, passing in a `RunningWorkout` object and then a `SwimmingWorkout` object.
+struct RunningWorkout: Workout {
+    var distance: Double
+    var time: Double
+}
+
+struct SwimmingWorkout: Workout {
+    var distance: Double
+    var time: Double
+}
+
+func simpleWorkoutDescription(workout: Workout) {
+    print("You went \(workout.distance) meters in \(workout.time) seconds.")
+}
+
+let run1 = RunningWorkout(distance: 500, time: 100)
+let wade1 = SwimmingWorkout(distance: 200, time: 50)
+
+simpleWorkoutDescription(workout: run1)
+simpleWorkoutDescription(workout: wade1)
+
+// PAGE 5
+
+protocol HeartRateReceiverDelegate {
+    func heartRateUpdated(to bpm: Int) -> String
+}
+
+
+class HeartRateReceiver: HeartRateReceiverDelegate {
+    var currentHR: Int? {
+        didSet {
+            if let currentHR = currentHR {
+                print("The most recent heart rate reading is \(currentHR).")
+                delegate?.heartRateUpdated(to: currentHR)
+            } else {
+                print("Looks like we can't pick up a heart rate.")
+            }
+        }
+    }
+    
+    var delegate: HeartRateReceiverDelegate?
+
+    func startHeartRateMonitoringExample() {
+        for _ in 1...10 {
+            let randomHR = 60 + Int(arc4random_uniform(UInt32(15)))
+            currentHR = randomHR
+            Thread.sleep(forTimeInterval: 2)
+        }
+    }
+    
+    func heartRateUpdated(to bpm: Int) -> String {
+        return "\(bpm) beats per minute"
+    }
+}
+
+class HeartRateViewController: UIViewController, HeartRateReceiverDelegate {
+    var heartRateLabel: UILabel = UILabel()
+    
+    func heartRateUpdated(to bpm: Int) -> String {
+        heartRateLabel.text = "\(bpm)"
+        print("The user has been shown a heart rate of \(bpm) beats per minute.")
+        return heartRateLabel.text ?? ""
+    }
+    
+}
+//:  First, create an instance of `HeartRateReceiver` and call `startHeartRateMonitoringExample`. Notice that every two seconds `currentHR` get set and prints the new heart rate reading to the console.
+let hr1 = HeartRateReceiver()
+let hrvc1 = HeartRateViewController()
+hr1.startHeartRateMonitoringExample()
+hr1.delegate = hrvc1
